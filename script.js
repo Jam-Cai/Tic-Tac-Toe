@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < board.length; i++) {
             if (!board[i]) {
                 board[i] = ai;
-                let score = minimax(board, 0, false);
+                let score = minimax(board, 0, false, -Infinity, Infinity);
                 board[i] = null;
                 if (score > bestScore) {
                     bestScore = score;
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return bestMove;
     }
 
-    function minimax(board, depth, isMaximizing) {
+    function minimax(board, depth, isMaximizing, alpha, beta) {
         const scores = {
             'O': 10,
             'X': -10,
@@ -97,9 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < board.length; i++) {
                 if (!board[i]) {
                     board[i] = ai;
-                    let score = minimax(board, depth + 1, false);
+                    let score = minimax(board, depth + 1, false, alpha, beta);
                     board[i] = null;
                     bestScore = Math.max(score, bestScore);
+                    alpha = Math.max(alpha, score);
+                    if (beta <= alpha) {
+                        break;
+                    }
                 }
             }
             return bestScore;
@@ -108,9 +112,13 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < board.length; i++) {
                 if (!board[i]) {
                     board[i] = player;
-                    let score = minimax(board, depth + 1, true);
+                    let score = minimax(board, depth + 1, true, alpha, beta);
                     board[i] = null;
                     bestScore = Math.min(score, bestScore);
+                    beta = Math.min(beta, score);
+                    if (beta <= alpha) {
+                        break;
+                    }
                 }
             }
             return bestScore;
