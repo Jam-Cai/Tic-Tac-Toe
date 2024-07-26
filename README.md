@@ -1,6 +1,6 @@
 # Tic Tac Toe with AI
 
-This project is a simple implementation of the Tic Tac Toe game with an AI opponent. You can try it at https://jam-cai.github.io/Tic-Tac-Toe/
+This project is a simple implementation of the Tic Tac Toe game with an AI opponent. You can try it at https://jam-cai.github.io/Tic-Tac-Toe/.
 
 ## Features
 
