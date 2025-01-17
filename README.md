@@ -5,7 +5,7 @@ This project is a simple implementation of the Tic Tac Toe game with an AI oppon
 ## Features
 
 - Play Tic Tac Toe against an AI opponent.
-- The AI uses the Minimax algorithm optimized using Alpha-Beta Pruning.
+- The AI uses the Minimax algorithm optimized with Alpha-Beta Pruning.
 
 ## Files
 
